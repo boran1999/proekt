@@ -43,6 +43,19 @@ using namespace std;
 			num.push_back(r1);
 		}
 	}
+	void chain::setnum(const char* namefile) {
+		ifstream in(namefile);
+		Rational r;
+		while(!in.eof()){
+			char sym = in.get();
+			if (sym > '0' && sym < '9') {
+				int numer = sym - '0';
+				r.numer = numer;
+				r.denom = 1;
+				num.push_back(r);
+			}
+		}
+	}
 
 	Rational chain::to_rat() const{
 		chain temp;
@@ -97,6 +110,10 @@ using namespace std;
 			r.numer = r.numer - del * r.denom;
 		}
 		num.push_back(r);
+	}
+
+	void chain::to_chain(Rational r, const char filename) {
+
 	}
 
 	chain& chain::operator +=(const chain& r)
