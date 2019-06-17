@@ -13,8 +13,10 @@ public:
 	chain(int a, int b, int c);
 
 	void set(const char* namefile);
+	void setnum(const char* namefile);
 	Rational to_rat() const;
 	void to_chain(Rational r);
+	void to_chain(Rational r, const char filename);
 
 	chain& operator += (const chain& r);
 	chain operator + (const chain& r) const;
